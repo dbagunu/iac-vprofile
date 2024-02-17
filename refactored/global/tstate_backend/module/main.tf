@@ -24,18 +24,18 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "default" {
 # Explicitly block all public access to the s3 bucket
 
 resource "aws_s3_bucket_public_access_block" "public_access" {
-  bucket = local.s3_bucket_id
-  block_public_acls = true
-  block_public_policy = true
-  ignore_public_acls = true
+  bucket                  = local.s3_bucket_id
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
   restrict_public_buckets = true
 }
 
 # DynamoDB for locking
 resource "aws_dynamodb_table" "terraform_locks" {
-  name = var.dynamoDB_name
+  name         = var.dynamoDB_name
   billing_mode = "PAY_PER_REQUEST"
-  hash_key = "LockID"
+  hash_key     = "LockID"
 
   attribute {
     name = "LockID"
