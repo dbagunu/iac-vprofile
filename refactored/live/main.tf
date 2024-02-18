@@ -1,16 +1,3 @@
-terraform {
-  # Backend where the tfstate file will be saved
-
-  backend "s3" {
-    bucket = "terraform-aws-vprofile"
-    key    = "staging/terraform.tfstate"
-    region = "ap-southeast-1"
-
-    dynamodb_table = "terraform-state-locks2"
-    encrypt        = true
-  }
-}
-
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "5.1.2"

@@ -26,6 +26,15 @@ terraform {
     }
   }
 
+  backend "s3" {
+    bucket = "terraform-aws-vprofile"
+    key    = "staging/terraform.tfstate"
+    region = "ap-southeast-1"
+
+    dynamodb_table = "terraform-state-locks2"
+    encrypt        = true
+  }
+
   required_version = "~> 1.6.3"
 }
 
