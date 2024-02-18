@@ -31,8 +31,8 @@ terraform {
     key    = "staging/terraform.tfstate"
     region = "ap-southeast-1"
 
-    dynamodb_table = "terraform-state-locks2"
-    encrypt        = true
+    /* dynamodb_table = "terraform-state-locks2"
+    encrypt        = true */
   }
 
   required_version = "~> 1.6.3"
