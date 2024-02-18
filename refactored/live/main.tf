@@ -3,11 +3,11 @@ terraform {
 
   backend "s3" {
     bucket = "terraform-aws-vprofile"
-    key = "staging/terraform.tfstate"
+    key    = "staging/terraform.tfstate"
     region = "ap-southeast-1"
 
     dynamodb_table = "terraform-state-locks2"
-    encrypt = true
+    encrypt        = true
   }
 }
 
@@ -40,8 +40,8 @@ module "vpc" {
 
 module "eks" {
   depends_on = [module.vpc]
-  source  = "terraform-aws-modules/eks/aws"
-  version = "19.19.1"
+  source     = "terraform-aws-modules/eks/aws"
+  version    = "19.19.1"
 
   cluster_name    = local.cluster_name
   cluster_version = "1.27"
