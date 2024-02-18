@@ -5,12 +5,12 @@ on:
       - main
       - stage
     paths:
-      - terraform/**
+      - refactored/**
   pull_request:
     branches:
       - main
     paths:
-      - terraform/**
+      - refactored/**
   
 env:
   # Credentials for deployment to AWS
@@ -28,7 +28,7 @@ jobs:
       defaults:
         run:
            shell: bash
-           working-directory: ./terraform
+           working-directory: ./refactored/live
       
       steps:
         - name: Checkout source code
